@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: miissa <miissa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 07:15:05 by miissa            #+#    #+#             */
-/*   Updated: 2025/12/06 18:22:31 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/19 14:12:14 by miissa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,28 @@ char	*get_next_line(int fd)
 	line = extract_line(stash);
 	stash = save_remainder(stash);
 	return (line);
+}
+
+#include <fcntl.h>
+#include <stdio.h>
+#include <sys/stat.h>
+
+int	main(void)
+{
+	int		fd;
+	char	*line_one;
+	char	*line_tow;
+	char	*line_toww;
+
+	// fd = open("hello.txt", O_RDONLY);
+	// if (fd < 0)
+	// 	perror("error message");
+	fd = 0;
+	line_one = get_next_line(fd);
+	printf("%s", line_one);
+	line_tow = get_next_line(fd);
+	printf("\n%s", line_tow);
+	line_toww = get_next_line(fd);
+	printf("\n%s", line_toww);
+	return (0);
 }
